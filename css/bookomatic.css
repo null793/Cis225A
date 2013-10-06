@@ -1,0 +1,7 @@
+html, body { margin:0; height: 100%;}
+body {
+    background:url('../images/header.jpg') no-repeat scroll center top/cover transparent;
+    background-attachment: fixed;
+
+
+}
