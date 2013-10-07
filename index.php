@@ -18,7 +18,7 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
+
     <style id="holderjs-style" type="text/css">.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style><script>window["_GOOG_TRANS_EXT_VER"] = "1";</script></head>
 
 <body style="">
@@ -39,19 +39,8 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="#contact">Register</a></li>
+                        <li><a href="#contact">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -61,26 +50,8 @@
 </div>
 
 
-<!-- Carousel
-================================================== -->
-<div id="myCarousel" class="carousel slide">
-    <!-- Indicators -->
 
-    <div class="carousel-inner">
-        <div class="item">
 
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-large btn-primary" href="#">Sign up today</a></p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</div><!-- /.carousel -->
 
 
 
@@ -99,10 +70,10 @@
 
 
     <!-- FOOTER -->
-    <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>© 2013 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-    </footer>
+    <div class="footer" id="footer">
+        <h1>You have to know the material you're writing about before you alter it.  <small>Humter S Thompson</small></h1>
+    </div>
+
 
 </div><!-- /.container -->
 
@@ -113,6 +84,27 @@
 <script src="../bootstrap/assets/js/jquery.js"></script>
 <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../bootstrap/assets/js/holder.js"></script>
+<script>
+    $(function(){
+        $(window).resize(function(){
+            placeFooter();
+        });
 
+        placeFooter();
+        // hide it before it's positioned
+
+    });
+
+    function placeFooter() {
+        var windHeight = $(window).height();
+        var footerHeight = $('.footer').height();
+        console.log(windHeight);
+        var offset = parseInt(windHeight) - parseInt(footerHeight);
+        console.log(offset);
+
+        $('.footer').css('top',windHeight);
+
+    }
+</script>
 
 </body></html>
