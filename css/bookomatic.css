@@ -2,16 +2,20 @@ html, body { margin:0; height: 100%;}
 body {
     background:url('../images/header.jpg') no-repeat scroll center top/cover transparent;
     background-attachment: fixed;
-
+    opacity:0.8 !important;
+    filter:alpha(opacity=80);
 
 }
 
 .footer {
 
 
-    width:100%;
-    height: 100%;
-    color:#FBCB43 !important;
-    opacity:0.6;
-    filter:alpha(opacity=80);
+
+    color:#CCC !important;
+    opacity:0.9 !important;
+    filter:alpha(opacity=90);
+}
+
+.footer h1 {
+    color:#ebebeb;
 }

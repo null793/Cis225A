@@ -40,9 +40,27 @@
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Register</a></li>
-                        <li><a href="#contact">Login</a></li>
+                        <li class="drop down">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Login <strong class="caret"></strong></a>
+                            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                                <!-- Login form here -->
+                                <form action="login.php" method="post" accept-charset="UTF-8">
+                                    <input id="user_username" style="margin-bottom: 15px;" type="text" name="user[username]" size="30" />
+                                    <input id="user_password" style="margin-bottom: 15px;" type="password" name="user[password]" size="30" />
+                                    <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="user[remember_me]" value="1" />
+                                    <label class="string optional" for="user_remember_me"> Remember me</label>
+
+                                    <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />
+                                </form>
+
+                            </div>
+
+                        </li>
                     </ul>
+                    <!-- The drop down menu -->
+
                 </div>
+
             </div>
         </div>
 
@@ -71,7 +89,7 @@
 
     <!-- FOOTER -->
     <div class="footer" id="footer">
-        <h1>You have to know the material you're writing about before you alter it.  <small>Humter S Thompson</small></h1>
+        <h1>Sometimes at dusk, when you were trying to relax and not think of the general stagnation, the Garbage God would gather a handful of those choked-off morning hopes and dangle them somewhere just out of reach; they would hang in the breeze and make a sound like delicate glass bells, reminding you of something you never quite got hold of, and never would.  <small>Humter S Thompson</small></h1>
     </div>
 
 
@@ -93,6 +111,14 @@
         placeFooter();
         // hide it before it's positioned
 
+    });
+
+    $(document).ready(function()
+    {
+        //Handles menu drop down
+        $('.dropdown-menu').find('form').click(function (e) {
+            e.stopPropagation();
+        });
     });
 
     function placeFooter() {
