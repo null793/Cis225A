@@ -17,7 +17,7 @@ session_start();
 if(isset($_SESSION['isloggedin']) && $_SESSION['isloggedin'] == true) {
 
 	
-	if($_SESSION['timeout'] + 1 * 60 < time()){ // if session timed out
+	if($_SESSION['timeout'] + 2 * 60 < time()){ // if session timed out
       
 	  echo '<h1>Error</h1>';
 	  echo '<p>Your session has timed out. Please login again.</p>';
@@ -80,6 +80,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     } else {
         $e = mysqli_real_escape_string($dbc, trim($_POST['email']));
     }
+	
+    //validate password
+    if (!empty($_POST['pass1'])){
+        if ($_POST['pass1'] != $_POST['pass2']){
+            $errors[] = 'Your password did not match the confirmed password';
+        } else {
+            $p = mysqli_real_escape_string($dbc, trim($_POST['pass1']));
+			$ep = SHA1($p);
+        }
+    } else {
+        $errors[] = 'You forgot to enter your password';
+    }
 
     if (empty($errors)){  //if everything okay
 
@@ -89,7 +101,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         if (mysqli_num_rows($r) == 0){
             //make the query
-            $q = "UPDATE user SET user_first_name='$fn', user_last_name='$ln', user_login='$log', user_email='$e'
+            $q = "UPDATE user
+				  SET user_first_name='$fn', user_last_name='$ln', user_login='$log', user_email='$e', user_password='$ep'
                   WHERE pk_user_id=$id LIMIT 1";
             $r = @mysqli_query($dbc, $q);
 

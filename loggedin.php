@@ -21,7 +21,7 @@ session_start(); // start the session
 if(isset($_SESSION['isloggedin']) && $_SESSION['isloggedin'] == true) {
 
 	
-	if($_SESSION['timeout'] + 1 * 60 < time()){ // if session timed out
+	if($_SESSION['timeout'] + 2 * 60 < time()){ // if session timed out
       
 	  echo '<h1>Error</h1>';
 	  echo '<p>Your session has timed out. Please login again.</p>';

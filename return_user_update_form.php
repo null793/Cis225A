@@ -12,7 +12,7 @@ session_start();
 if(isset($_SESSION['isloggedin']) && $_SESSION['isloggedin'] == true) {
 
 	
-	if($_SESSION['timeout'] + 1 * 60 < time()){ // if session timed out
+	if($_SESSION['timeout'] + 2 * 60 < time()){ // if session timed out
       
 	  echo '<h1>Error</h1>';
 	  echo '<p>Your session has timed out. Please login again.</p>';
@@ -52,6 +52,8 @@ if((isset($_GET["pk_user_id"]) && is_numeric(htmlspecialchars($_GET["pk_user_id"
         <tr><td>Last Name</td><td><input type="text" name="lname" value="<?php echo $row["user_last_name"] ?>"/></td></tr>
         <tr><td>Login</td><td><input type="text" name="login" value="<?php echo $row["user_login"] ?>"/></td></tr>
         <tr><td>Email</td><td><input type="text" name="email" value="<?php echo $row["user_email"] ?>"/></td></tr>
+		<tr><td>Password</td><td><input type="password" name="pass1"/></td></tr>
+		<tr><td>Confirm Password</td><td><input type="password" name="pass2" /></td></tr>
 		</table>
         <input type="hidden" name="id" value="<?php echo $row["pk_user_id"] ?>"/>
 
