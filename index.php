@@ -1,136 +1,143 @@
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../bootstrap/assets/ico/favicon.png">
+<link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+<script src="/bootstrap/assets/js/jquery.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.js"></script>
+<!-- Modal -->
+<div class="modal fade" id="regForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Registration</h4>
+            </div>
+            <div id="user-registration-form" class="modal-body">
+                <form name="register" action="user_register.php" method="post" class="form-horizontal" role="form" >
 
-    <title>Book-o-matic</title>
+                   
+					<div class="form-group">
+                        <label for="reg-first-name" class="col-lg-2 control-label">First Name</label>
+                        <div class="col-lg-6">
+                            <input name="user_first_name" type="text" class="form-control" id="reg-first-name" placeholder="First Name">
+                        </div>
+                    </div>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="../css/bookomatic.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+                    <div class="form-group">
+                        <label for="reg-last-name" class="col-lg-2 control-label">Last Name</label>
+                        <div class="col-lg-6">
+                            <input name="user_last_name" type="text" class="form-control" id="reg-last-name" placeholder="Last Name">
+                        </div>
+                    </div>
 
-    <!--[if lt IE 9]>
-    <script src="../bootstrap/assets/js/html5shiv.js"></script>
-    <script src="../bootstrap/assets/js/respond.min.js"></script>
-    <![endif]-->
+                    <!-- File Upload Picture ##REMOVED FILE UPLOAD NICK MIERS
+                    <div class="form-group">
+                        <label for="reg-picture" class="col-lg-2 control-label">Picture</label>
+                        <div class="col-lg-6">
+                            <input type="file" class="form-control" id="reg-picture" >
+                        </div>
+                    </div>-->
+					
+					<div class="form-group">
+                        <label for="reg-user-login" class="col-lg-2 control-label">User Login</label>
+                        <div class="col-lg-6">
+                            <input name="user_login" type="text" class="form-control" id="reg-first-name" placeholder="Login Name">
+                        </div>
+                    </div>
 
-    <!-- Custom styles for this template -->
+                    <div class="form-group">
+                        <label for="reg-email" class="col-lg-2 control-label">Email</label>
+                        <div class="col-lg-6">
+                            <input name="user_email" type="email" class="form-control" id="reg-email" placeholder="Email">
+                        </div>
+                    </div>
 
-    <style id="holderjs-style" type="text/css">.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style><script>window["_GOOG_TRANS_EXT_VER"] = "1";</script></head>
+                    <div class="form-group">
+                        <label for="reg-password" class="col-lg-2 control-label">Password</label>
+                        <div class="col-lg-6">
+                            <input name="pass1" type="password" class="form-control" id="reg-password" placeholder="Password">
+                        </div>
+                    </div>
+					
+					<div class="form-group">
+                        <label for="reg-password" class="col-lg-2 control-label">Confirm Password</label>
+                        <div class="col-lg-6">
+                            <input name="pass2" type="password" class="form-control" id="reg-password" placeholder="Password">
+                        </div>
+                    </div>
 
-<body style="">
-<div class="navbar-wrapper">
-    <div class="container">
+                    <!-- Email address : <input type="text" name="email" /> <br> -->
+                    <!--Password :      <input type="password" name="password" /> -->
 
-        <div class="navbar navbar-inverse navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Book-o-matic</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Register</a></li>
-                        <li class="drop down">
-                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Login <strong class="caret"></strong></a>
-                            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-                                <!-- Login form here -->
-                                <form action="login.php" method="post" accept-charset="UTF-8">
-                                    <input id="user_username" style="margin-bottom: 15px;" type="text" name="user[username]" size="30" />
-                                    <input id="user_password" style="margin-bottom: 15px;" type="password" name="user[password]" size="30" />
-                                    <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="user[remember_me]" value="1" />
-                                    <label class="string optional" for="user_remember_me"> Remember me</label>
 
-                                    <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />
-                                </form>
+                    <br>
 
-                            </div>
+                <!--</form> need to include button-->
+				</div>
+				<div class="modal-footer">
+					<button type="submit" id="submitReg" class="btn btn-large btn-primary" >Register</button>
+				</div>
+			</form> <!-- moved form tag to include register button-->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: C207-8a
+ * Date: 10/1/13
+ * Time: 5:09 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<style>
+    body{
+        padding-top: 50px;
+    }
+    #password_holder{
+        width: 300px;
+        padding:10px;
+        border:1px solid #404040;
+        border-radius: 5px;
+        display: block;
+        background-color: #CCC;
 
-                        </li>
-                    </ul>
-                    <!-- The drop down menu -->
+    }
+    .center
+    {
+        margin-left:auto;
+        margin-right:auto;
+        width:70%;
+        background-color:#b0e0e6;
+    }
+</style>
 
-                </div>
+<div  id="password_holder" class="center" >
+    <form name="register" action="user_login.php" method="post" class="form-horizontal" role="form" >
+        <h1>Please Login</h1>
 
+        <div class="form-group">
+            <label for="email" class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-6">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
             </div>
         </div>
 
-    </div>
+        <div class="form-group">
+            <label for="password" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-6">
+                <input type="password" class="form-control" id="password" name="pass" placeholder="Password">
+            </div>
+        </div>
+
+        <!-- Email address : <input type="text" name="email" /> <br> -->
+        <!--Password :      <input type="password" name="password" /> -->
+
+        <button type="submit" class="btn btn-large btn-primary" >Login</button>
+        <br>
+        <a  class='btn  btn-link' id="regButton" >Need to register? Click Here!</a>
+    </form>
 </div>
-
-
-
-
-
-
-
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-
-<div class="container marketing">
-
-    <!-- Three columns of text below the carousel -->
-
-
-    <hr class="featurette-divider">
-
-    <!-- /END THE FEATURETTES -->
-
-
-    <!-- FOOTER -->
-    <div class="footer" id="footer">
-        <h1>Sometimes at dusk, when you were trying to relax and not think of the general stagnation, the Garbage God would gather a handful of those choked-off morning hopes and dangle them somewhere just out of reach; they would hang in the breeze and make a sound like delicate glass bells, reminding you of something you never quite got hold of, and never would.  <small>Humter S Thompson</small></h1>
-    </div>
-
-
-</div><!-- /.container -->
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="../bootstrap/assets/js/jquery.js"></script>
-<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="../bootstrap/assets/js/holder.js"></script>
 <script>
-    $(function(){
-        $(window).resize(function(){
-            placeFooter();
-        });
-
-        placeFooter();
-        // hide it before it's positioned
-
+    $("#regButton").click(function(){
+        console.log('test');
+        $('#regForm').modal('toggle');
     });
-
-    $(document).ready(function()
-    {
-        //Handles menu drop down
-        $('.dropdown-menu').find('form').click(function (e) {
-            e.stopPropagation();
-        });
-    });
-
-    function placeFooter() {
-        var windHeight = $(window).height();
-        var footerHeight = $('.footer').height();
-        console.log(windHeight);
-        var offset = parseInt(windHeight) - parseInt(footerHeight);
-        console.log(offset);
-
-        $('.footer').css('top',windHeight);
-
-    }
 </script>
-
-</body></html>
