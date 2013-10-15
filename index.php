@@ -69,7 +69,7 @@
 
                     <br>
 
-                <!--</form> need to include button-->
+                <!--</form> moved to include button-->
 				</div>
 				<div class="modal-footer">
 					<button type="submit" id="submitReg" class="btn btn-large btn-primary" >Register</button>

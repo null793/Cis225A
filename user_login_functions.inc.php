@@ -38,10 +38,17 @@ function check_login($dbc, $email = '', $pass = ''){
     }
 
     if(empty($errors)){ //if no errors
+	
+		$ep = crypt('$p', '$e'); //encrypt password
 
         //retrieve the username and password
         $q = "SELECT pk_user_id, user_first_name FROM user
-              WHERE user_email='$e' AND user_password=SHA1('$p')";
+              WHERE user_email='$e' AND user_password='$ep'";
+
+
+        //retrieve the username and password old
+        //$q = "SELECT pk_user_id, user_first_name FROM user
+         //     WHERE user_email='$e' AND user_password=SHA1('$p')";
 
         $r = @mysqli_query($dbc, $q); //run the query
 

@@ -55,11 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     //if no errors
     if (empty($errors)){
 
-
+		$ep = crypt('$p', '$e'); //creates encryption variable
 
         //create the query
         $q = "INSERT INTO user (user_login, user_first_name, user_last_name, user_email, user_password, create_date)
-        VALUES ('$log', '$fn', '$ln', '$e', SHA1('$p'), NOW())";
+        VALUES ('$log', '$fn', '$ln', '$e', '$ep', NOW())";
 
         $r = @mysqli_query($dbc, $q); //runs query
 
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo '<h1>Thank you!</h1>
             <p>You are now registered. Please login.</p>
             <br />';
-			echo "<p><a class='button btn btn-primary btn-xs' href=\"index.htm\">Proceed to Login</a></p>";
+			echo "<p><a class='button btn btn-primary btn-xs' href=\"index.php\">Proceed to Login</a></p>";
 
         } else {  //if not okay
 
@@ -98,6 +98,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo " - $msg<br />\n";
         }
         echo '</p><p>Please try again.</p><p><br /></p>';
+		echo "<p><a class='button btn btn-primary btn-xs' href=\"index.php\">Try again</a></p>";
+		
 
     }//end if
 

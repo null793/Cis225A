@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $errors[] = 'Your password did not match the confirmed password';
         } else {
             $p = mysqli_real_escape_string($dbc, trim($_POST['pass1']));
-			$ep = SHA1($p);
+			$ep = crypt('$p', '$e');
         }
     } else {
         $errors[] = 'You forgot to enter your password';

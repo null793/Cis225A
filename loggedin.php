@@ -44,12 +44,9 @@ if(isset($_SESSION['isloggedin']) && $_SESSION['isloggedin'] == true) {
 }
 
 
-//set page title and include header
-$page_title = 'Logged In!';
-
 //print customized message
 echo "<h1>Logged In!</h1>
-<p>You are now logged in, {$_SESSION['user_first_name']}!</p>
+<p>Welcome {$_SESSION['user_first_name']}, you are now logged into the main page!</p>
 <p><a class='button btn btn-primary btn-xs'href=\"all_my_users.php\">Show User Account</a></p>
 <p><a class='button btn btn-primary btn-xs'href=\"logout.php\">Logout</a></p>";
 
